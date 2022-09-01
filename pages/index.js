@@ -1,5 +1,5 @@
 import { getFilesList } from "../lib/content";
-import { attributes, react as HomeContent } from "../content/home.md";
+import { attributes } from "../content/home.md";
 
 const Home = ({ content }) => {
     console.log(JSON.stringify(content));
