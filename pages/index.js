@@ -7,6 +7,7 @@ const Home = ({ content }) => {
     return (
         <>
             <div>{title}</div>
+            <HomeContent/>
             <article>
                 {content instanceof Array &&
                     content.map((e) => <div key={e}>{e}</div>)}
