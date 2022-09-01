@@ -1,7 +1,10 @@
 ---
 name: Курочкин Денис Анатольевич
-date: 2022-08-05T06:25:55.388Z
 photo: /img/20878458.jpg
+skills:
+  - skill: React
+  - skill: Redux
+date: 2022-08-05T06:25:55.388Z
 jobs:
   - dateFrom: 2011-06-01T03:31:21.170Z
     dateTo: 2022-08-30T04:31:21.215Z
