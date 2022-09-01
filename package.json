@@ -10,7 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-react": "^7.18.6",
     "@netlify/plugin-nextjs": "^4.21.1",
+    "frontmatter-markdown-loader": "^3.7.0",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
