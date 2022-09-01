@@ -1,12 +1,17 @@
 import { getFilesList } from "../lib/content";
+import { attributes, react as HomeContent } from "../content/home.md";
 
 const Home = ({ content }) => {
     console.log(JSON.stringify(content));
+    let { title } = attributes;
     return (
-        <article>
-            {content instanceof Array &&
-                content.map((e) => <div key={e}>{e}</div>)}
-        </article>
+        <>
+            <div>{title}</div>
+            <article>
+                {content instanceof Array &&
+                    content.map((e) => <div key={e}>{e}</div>)}
+            </article>
+        </>
     );
 };
 
