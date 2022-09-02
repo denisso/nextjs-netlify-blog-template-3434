@@ -27,9 +27,6 @@ jobs:
 title: Hello world
 image: /img/artboard_cup.png
 birthday: 1982-10-20T09:00:39.793Z
-cats:
-  - name: Супер поция
-    description: За триста валисов
 ---
 Общий стаж работы с web технологиями 3 года. В последнее время, около года, занимался разработкой SPA на базе технологий React, Redux Toolkit и rtkQuery, Styled-components, React-Router с использованием Typescript. 
 
