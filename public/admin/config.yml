@@ -19,11 +19,7 @@ collections:
         - { label: "Photo", name: "photo", widget: "image" }
         - { label: "Birthday", name: "birthday", widget: "date" }
         - { label: "Body", name: "body", widget: "markdown" }
-        - label: "Skills"
-          name: "skills"
-          widget: "list"
-          fields:
-            - { label: "Skill", name: "skill", widget: "string" }
+        - { label: "Skills", name: "skills", widget: "string" }
         - label: "Jobs"
           name: "jobs"
           widget: "list"
