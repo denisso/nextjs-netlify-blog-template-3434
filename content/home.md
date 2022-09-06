@@ -1,6 +1,8 @@
 ---
 name: Курочкин Денис Анатольевич
 photo: /img/20878458.jpg
+title: Привет, Я Денис 👋
+subtitle: Я React разработчик.
 skills: React, Redux, Typescript, Node.js, Webpack, JavaScript, SQL, HTML5, CSS3, Git, Web API, Styled-components, Framer Motion, Паттерны программирования, React router, React ecosystem, SCSS, jQuery, MySQL, MongoDB, ESLint, PHP
 date: 2022-08-05T06:25:55.388Z
 jobs:

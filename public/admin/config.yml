@@ -16,6 +16,8 @@ collections:
       file: "content/home.md"
       fields:
         - { label: "Name", name: "name", widget: "string" }
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Subtitle", name: "subtitle", widget: "string" }
         - { label: "Photo", name: "photo", widget: "image" }
         - { label: "Birthday", name: "birthday", widget: "date" }
         - { label: "Body", name: "body", widget: "markdown" }
