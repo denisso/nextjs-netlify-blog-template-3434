@@ -1,12 +1,24 @@
-module.exports = {
+const withTM = require("next-transpile-modules")([
+    "@mui/material",
+    "@mui/system",
+]); // pass the modules you would like to see transpiled
+
+module.exports = withTM({
+    reactStrictMode: true,
+    compiler: {
+        // Enables the styled-components SWC transform
+        styledComponents: true,
+    },
     webpack: (cfg) => {
-        cfg.module.rules.push(
-            {
-                test: /\.md$/,
-                loader: 'frontmatter-markdown-loader',
-                options: { mode: ['react-component'] }
-            }
-        )
+        cfg.module.rules.push({
+            test: /\.md$/,
+            loader: "frontmatter-markdown-loader",
+            options: { mode: ["react-component"] },
+        });
+        cfg.resolve.alias = {
+            ...cfg.resolve.alias,
+            "@mui/styled-engine": "@mui/styled-engine-sc",
+        };
         return cfg;
-    }
-}
+    },
+});

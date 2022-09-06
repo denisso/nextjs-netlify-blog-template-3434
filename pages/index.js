@@ -1,14 +1,20 @@
 import { getHomeData } from "../lib/content";
 import Image from "next/image";
 import moment from "moment";
-const Home = ({ data }) => {
-    console.log("browser:", data);
+import Layout from "../components/Layout";
 
+const Home = ({ data }) => {
     return (
-        <>
+        <Layout title={data.title} description={`${data.title} - ${data.subtitle}`}>
             <div className="name">{data.name}</div>
             <div className="photo">
-                <img src={data.photo} alt="" />
+                <Image
+                    //   loader={}
+                    src={data.photo}
+                    alt="Picture of the author"
+                    width={500}
+                    height={500}
+                />
             </div>
             <div className="dateupdate">
                 {data.date && moment(data.date).format("YYYY/MM/DD hh:mm")}
@@ -27,8 +33,14 @@ const Home = ({ data }) => {
                     data.jobs.map((job, i) => (
                         <div key={i} className="job">
                             <div className="company">{job.company}</div>
-                            <div className="dateFrom">{job.dateFrom && moment(job.dateFrom).format("YYYY/MM/DD")}</div>
-                            <div className="dateTo">{job.dateTo && moment(job.dateTo).format("YYYY/MM/DD")}</div>
+                            <div className="dateFrom">
+                                {job.dateFrom &&
+                                    moment(job.dateFrom).format("YYYY/MM/DD")}
+                            </div>
+                            <div className="dateTo">
+                                {job.dateTo &&
+                                    moment(job.dateTo).format("YYYY/MM/DD")}
+                            </div>
                             <div className="responsibilities">
                                 {job.responsibilities}
                             </div>
@@ -39,7 +51,7 @@ const Home = ({ data }) => {
             <article
                 dangerouslySetInnerHTML={{ __html: data.content }}
             ></article>
-        </>
+        </Layout>
     );
 };
 
