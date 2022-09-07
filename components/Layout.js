@@ -11,10 +11,11 @@ const variants = {
 const Main = styled(motion.main)`
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 `;
 
 const Layout = ({ children, title, description }) => (
-    <div>
+    <>
         <NextSeo
             title={title}
             description={description}
@@ -29,7 +30,7 @@ const Layout = ({ children, title, description }) => (
         >
             {children}
         </Main>
-    </div>
+    </>
 );
 
 export default Layout
