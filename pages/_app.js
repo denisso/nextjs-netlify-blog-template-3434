@@ -3,7 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Provider, useSelector } from "react-redux";
 import { selectTheme } from "../theme/themeSlice";
 import store from "../store";
-import GlobalStyle from "../theme/globalstyles";
+import GlobalStyle from "../theme/globalStyles";
 import {Header} from "../components/Header"
 import {Footer} from "../components/Footer"
 

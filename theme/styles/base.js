@@ -17,10 +17,9 @@ export const base = css`
         color: ${({ theme }) => theme.palette.textColor};
         transition: color var(--transition), background-color var(--transition),
             width var(--transition);
-        font-size: 18px;
-        font-family: ${({ theme }) => theme.fontFamily};
-        /* for position sticky */
-        overflow-x: hidden;
+        font-size: var(--fontSize);
+        font-family: var(--font1);
+        line-height: 1.5;
     }
 
     a,
@@ -41,7 +40,8 @@ export const base = css`
     }
     #__next {
         background-color: ${({ theme }) => theme.palette.background};
-        transition: width var(--transition), margin var(--transition), border-radius var(--transition);
+        transition: width var(--transition), margin var(--transition),
+            border-radius var(--transition);
         margin: 50px auto 100px;
         box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
             0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -50,21 +50,21 @@ export const base = css`
             0 41.8px 33.4px rgba(0, 0, 0, 0.086),
             0 100px 80px rgba(0, 0, 0, 0.12);
 
-        ${({ theme }) =>theme.breakpoints.down('sm')} {
+        ${({ theme }) => theme.breakpoints.down("sm")} {
             width: 100%;
             margin: 0 auto 0;
             border-radius: 0;
         }
-        ${({ theme }) =>theme.breakpoints.up("sm")} {
+        ${({ theme }) => theme.breakpoints.up("sm")} {
             border-radius: var(--borderRadiusBlock);
         }
-        ${({ theme }) =>theme.breakpoints.between("sm", "lg")} {
+        ${({ theme }) => theme.breakpoints.between("sm", "lg")} {
             width: 95%;
         }
-        ${({ theme }) =>theme.breakpoints.between("lg", "xl")} {
+        ${({ theme }) => theme.breakpoints.between("lg", "xl")} {
             width: 90%;
         }
-        ${({ theme }) =>theme.breakpoints.up("xl")} {
+        ${({ theme }) => theme.breakpoints.up("xl")} {
             width: 1400px;
         }
     }

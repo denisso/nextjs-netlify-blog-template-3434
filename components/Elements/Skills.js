@@ -5,10 +5,10 @@ const Container = styled.div`
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-`;
-
-const ChipStyled = styled(Chip)`
-    font-size: var();
+    .Chip {
+        font-size: var(--fontSize);
+        font-family: var(--font1);
+    }
 `;
 
 // const ChipStyled = styled(Chip)``
@@ -18,7 +18,13 @@ export const Skills = ({ skills }) => (
             skills
                 .split(",")
                 .map((e, i) => (
-                    <ChipStyled key={e} color="primary" label={e} clickable />
+                    <Chip
+                        key={e}
+                        color="primary"
+                        label={e}
+                        clickable
+                        className="Chip"
+                    />
                 ))}
     </Container>
 );

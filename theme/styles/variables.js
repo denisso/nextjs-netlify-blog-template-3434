@@ -2,7 +2,9 @@ import { css } from "styled-components";
 
 export const variables = css`
     :root {
-        
+        --fontSize: 18px;
+        --font1: 'IBM Plex Sans', sans-serif;
+        --font2: 'Comfortaa', cursive;
         --gap: 1rem;
         --zIndexModal: 9999;
         --zIndexSteakyHeader: 9999;

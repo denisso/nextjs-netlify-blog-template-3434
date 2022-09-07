@@ -20,8 +20,8 @@ const style = {
         },
     },
     typography: {
-        htmlFontSize: 22,
-        fontSize: 20
+        font1: `'IBM Plex Sans', sans-serif`,
+        font2: `'Comfortaa', cursive`
     }
 };
 export const light = createTheme({
