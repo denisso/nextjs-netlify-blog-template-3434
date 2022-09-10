@@ -13,8 +13,8 @@ export const base = css`
     }
 
     body {
-        background-color: ${({ theme }) => theme.palette.background2};
-        color: ${({ theme }) => theme.palette.textColor};
+        background-color: ${({ theme }) => theme.palette.color1[200]};
+        color: ${({ theme }) => theme.palette.color1[900]};
         transition: color var(--transition), background-color var(--transition),
             width var(--transition);
         font-size: var(--fontSize);
@@ -27,7 +27,7 @@ export const base = css`
     a:visited,
     a:active {
         text-decoration: none;
-        color: ${({ theme }) => theme.colorText};
+        color: ${({ theme }) => theme.palette.color1[900]};
         user-select: none;
         cursor: pointer;
     }
@@ -39,7 +39,7 @@ export const base = css`
         padding: 0 var(--padding);
     }
     #__next {
-        background-color: ${({ theme }) => theme.palette.background};
+        background-color: ${({ theme }) => theme.palette.rootColor};
         transition: width var(--transition), margin var(--transition),
             border-radius var(--transition);
         margin: 50px auto 100px;

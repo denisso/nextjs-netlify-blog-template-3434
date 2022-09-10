@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material/styles";
-
+import { grey, red, orange, blue } from '@mui/material/colors';
+import {reverseColors} from "./themeUtils"
 const style = {
     components: {
         MuiChip: {
@@ -24,11 +25,19 @@ const style = {
         font2: `'Comfortaa', cursive`
     }
 };
+
+const colors = {
+    color1: grey,
+    color2: red,
+    color3: orange,
+    color4: blue
+}
+
 export const light = createTheme({
     palette: {
         mode: "light",
-        background: "white",
-        background2: "#DDDDDD" 
+        rootColor: "white",
+        ...colors
     },
     ...style,
 });
@@ -36,8 +45,11 @@ export const light = createTheme({
 export const dark = createTheme({
     palette: {
         mode: "dark",
-        background: "gray",
-        background2: "#DDDDDD"
+        rootColor: "gray",
+        color1: reverseColors(colors.color1),
+        color2: reverseColors(colors.color2),
+        color2: reverseColors(colors.color3),
+        color3: reverseColors(colors.color4),
     },
     ...style,
 });

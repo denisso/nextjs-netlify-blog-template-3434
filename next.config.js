@@ -15,6 +15,11 @@ module.exports = withTM({
             loader: "frontmatter-markdown-loader",
             options: { mode: ["react-component"] },
         });
+        cfg.module.rules.push({
+            test: /\.svg$/i,
+            issuer: /\.[jt]sx?$/,
+            use: ["@svgr/webpack"],
+        });
         cfg.resolve.alias = {
             ...cfg.resolve.alias,
             "@mui/styled-engine": "@mui/styled-engine-sc",

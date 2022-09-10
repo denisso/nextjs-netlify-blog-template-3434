@@ -1,29 +1,28 @@
-import styled from "styled-components";
+import { styled } from "@mui/material/styles";
 import { Chip } from "@mui/material";
 
-const Container = styled.div`
+const Container = styled("div")`
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-    .Chip {
-        font-size: var(--fontSize);
-        font-family: var(--font1);
-    }
 `;
 
-// const ChipStyled = styled(Chip)``
+const ChipStyled = styled(Chip)`
+    font-size: var(--fontSize);
+    font-family: var(--font2);  
+`;
+
 export const Skills = ({ skills }) => (
     <Container>
         {typeof skills === "string" &&
             skills
                 .split(",")
                 .map((e, i) => (
-                    <Chip
+                    <ChipStyled
                         key={e}
                         color="primary"
                         label={e}
                         clickable
-                        className="Chip"
                     />
                 ))}
     </Container>

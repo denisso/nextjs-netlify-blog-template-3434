@@ -4,18 +4,25 @@ import { Skills } from "../Elements/Skills";
 import styled from "styled-components"
 
 const Container = styled.div`
-
+    .photo{
+        .photoImage{
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
 `
 export const Home = ({data}) => {
     return (
-        <>
+        <Container>
+            <header></header>
             <div className="name">{data.name}</div>
             <div className="photo">
                 <Image
                     src={data.photo}
-                    alt="Picture of the author"
+                    alt="Фотография автора сайта"
                     width={500}
                     height={500}
+                    className="photoImage"
                 />
             </div>
             <div className="dateupdate">
@@ -49,6 +56,6 @@ export const Home = ({data}) => {
             <article
                 dangerouslySetInnerHTML={{ __html: data.content }}
             ></article>
-        </>
+        </Container>
     );
 };

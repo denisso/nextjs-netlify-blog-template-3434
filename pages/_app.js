@@ -14,13 +14,12 @@ const ThemeWrapper = ({ children }) => {
 
 export default function MyApp({ Component, pageProps, router }) {
     const url = `${process.env.URL}${router.route}`;
-
     return (
         <>
             <Provider store={store}>
                 <ThemeWrapper>
                     <GlobalStyle />
-                    <Header/>
+                    <Header page={pageProps.page}/>
                     <AnimatePresence
                         exitBeforeEnter
                         initial={false}
