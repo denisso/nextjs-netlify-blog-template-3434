@@ -3,8 +3,15 @@ import Layout from "../../components/Layout";
 import Link from "next/link";
 import { getListPosts, getPostData } from "../../lib/content";
 import { convSlugtoTitle } from "../../lib/utils";
-const Page = ({ page, data }) => {
 
+const Page = ({ page, data }) => {
+    if (!data) {
+        return (
+            <Layout title="Страница не найдена" description={""}>
+                <div>Not found</div>
+            </Layout>
+        );
+    }
     return (
         <Layout title={data.title} description={data.title}>
             <h1>{page}</h1>
@@ -34,7 +41,7 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: false,
+        fallback: true,
     };
 }
 
