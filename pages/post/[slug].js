@@ -4,10 +4,7 @@ import Link from "next/link";
 import { getListPosts, getPostData } from "../../lib/content";
 import { convSlugtoTitle } from "../../lib/utils";
 const Page = ({ page, data }) => {
-    const [client, setClient] = React.useState(false);
-    React.useEffect(() => {
-        setClient(true);
-    }, []);
+
     return (
         <Layout title={data.title} description={data.title}>
             <h1>{page}</h1>
@@ -37,7 +34,7 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: true,
+        fallback: false,
     };
 }
 
