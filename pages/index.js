@@ -1,31 +1,16 @@
 import React from "react";
-import { getHomeData } from "../lib/content";
+import { getHomeData, getListPosts } from "../lib/content";
 import Layout from "../components/Layout";
 import { Home } from "../components/Pages/Home";
-import Link from "next/link";
 
-const HomePage = ({ data, page }) => {
-    const [client, setClient] = React.useState(false);
-    React.useEffect(() => {
-        setClient(true);
-    }, []);
-
+const HomePage = (props) => {
+    const { data } = props;
     return (
         <Layout
             title={data.title}
             description={`${data.title} - ${data.subtitle}`}
         >
-            {/* <Home data={data}/> */}
-            <h1>Home</h1>
-            <div>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe
-                consequuntur consequatur fuga inventore dolores quidem molestiae
-                eveniet omnis deleniti adipisci itaque, harum quae animi, modi
-                nesciunt dolore. Alias, tenetur illum?
-            </div>
-            <div>
-                <Link href="/page">Page</Link>
-            </div>
+            <Home {...props} />
         </Layout>
     );
 };
@@ -33,11 +18,17 @@ const HomePage = ({ data, page }) => {
 export default HomePage;
 
 export async function getStaticProps() {
+    const props = {};
+    props.data = await getHomeData();
+    props.page = "Краткая справка";
+    props.pages = [];
+    const posts = await getListPosts();
+    for (const post of posts) {
+        post.url = `/post/${post.url}`;
+        props.pages.push(post);
+    }
     return {
-        props: {
-            data: await getHomeData(),
-            page: "Home"
-        },
+        props,
         revalidate: 5,
     };
 }

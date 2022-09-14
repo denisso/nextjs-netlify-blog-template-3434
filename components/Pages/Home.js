@@ -1,3 +1,4 @@
+import React from "react"
 import Image from "next/image";
 import moment from "moment";
 import { Skills } from "../Elements/Skills";
@@ -12,18 +13,23 @@ const Container = styled.div`
     }
 `
 export const Home = ({data}) => {
+    const [client, setClient] = React.useState(false);
+    React.useEffect(() => {
+        setClient(true);
+    }, []);
+    
     return (
         <Container>
             <header></header>
             <div className="name">{data.name}</div>
             <div className="photo">
-                <Image
+                {/* <Image
                     src={data.photo}
                     alt="Фотография автора сайта"
                     width={500}
                     height={500}
                     className="photoImage"
-                />
+                /> */}
             </div>
             <div className="dateupdate">
                 {data.date && moment(data.date).format("YYYY/MM/DD hh:mm")}

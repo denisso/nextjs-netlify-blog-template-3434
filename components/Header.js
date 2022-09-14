@@ -1,6 +1,8 @@
+import React from "react";
 import styled from "styled-components";
 import Logo from "../assets/logo.svg";
-import { Link } from "@mui/material";
+import { Link as LinkMaterial } from "@mui/material";
+import Link from "next/link";
 import IconTelegram from "../assets/telegram.svg";
 import ArrowDropDown from "../assets/arrovDown.svg";
 
@@ -58,10 +60,10 @@ const Container = styled.div`
                 transform: rotate(90deg);
             }
         }
-        &:hover .items {
+        &:hover .navItems {
             opacity: 1;
         }
-        .items {
+        .navItems {
             display: flex;
             flex-direction: column;
             opacity: 0;
@@ -70,8 +72,8 @@ const Container = styled.div`
             top: 100%;
             border: solid;
             background-color: ${({ theme }) => theme.palette.rootColor};
-            .item {
-                text-align: center;
+            .navItem {
+                padding: 0.5rem;
                 white-space: nowrap;
             }
         }
@@ -103,31 +105,42 @@ const Container = styled.div`
     }
 `;
 
-export const Header = ({ page }) => (
-    <Container>
-        <div className="logo">
-            <Logo className="logoImg" />
-        </div>
-        <div className="nav">
-            <div className="itemHover">
-                <ArrowDropDown className="icon" />
-                <spann className="text">{page}</spann>
+export const Header = ({ page, pages }) => {
+    const [client, setClient] = React.useState(false);
+    React.useEffect(() => {
+        setClient(true);
+    }, []);
+    return (
+        <Container>
+            <div className="logo">
+                <Logo className="logoImg" />
             </div>
-            <div className="items">
-                <Link href="/page">Page</Link>
-            </div>
-        </div>
-        <div className="side">
-            <Link
-                href="https://t.me/DenisReactWebCoder"
-                target="_blank"
-                className="messageMe"
-            >
-                <span>Мой телеграм для связи </span>{" "}
-                <div className="iconWrapper">
-                    <IconTelegram className="icon" />
+            <div className="nav">
+                <div className="itemHover">
+                    <ArrowDropDown className="icon" />
+                    <spann className="text">{page}</spann>
                 </div>
-            </Link>
-        </div>
-    </Container>
-);
+                <div className="navItems">
+                    {pages instanceof Array &&
+                        pages.map((e) => (
+                            <Link key={e.path} href={e.url}>
+                                <a className="navItem">{e.title}</a>
+                            </Link>
+                        ))}
+                </div>
+            </div>
+            <div className="side">
+                <LinkMaterial
+                    href="https://t.me/DenisReactWebCoder"
+                    target="_blank"
+                    className="messageMe"
+                >
+                    <span>Мой телеграм для связи </span>{" "}
+                    <div className="iconWrapper">
+                        <IconTelegram className="icon" />
+                    </div>
+                </LinkMaterial>
+            </div>
+        </Container>
+    );
+};
