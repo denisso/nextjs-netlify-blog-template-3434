@@ -15,9 +15,9 @@ collections:
       name: "home"
       file: "content/home.md"
       fields:
-        - { label: "Name", name: "name", widget: "string" }
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Subtitle", name: "subtitle", widget: "string" }
+        - { label: "Name", name: "name", widget: "string", required: true }
+        - { label: "Title", name: "title", widget: "string", required: true }
+        - { label: "Subtitle", name: "subtitle", widget: "string", required: true }
         - { label: "Photo", name: "photo", widget: "image" }
         - { label: "Birthday", name: "birthday", widget: "date" }
         - { label: "Body", name: "body", widget: "markdown" }
@@ -53,6 +53,7 @@ collections:
     delete: true
     fields: 
       - {label: "Title", name: "title", widget: "string"}
+      - { label: "Sub Title", name: "subtitle", widget: "string", required: true }
       - label: 'Status'
         name: 'status'
         widget: 'select'
