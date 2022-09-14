@@ -29,9 +29,10 @@ const Container = styled.div`
     color: ${({ theme }) => theme.palette.color1[500]};
     transition: color var(--transition);
     .logo {
+        flex-shrink: 0;
         height: 2rem;
         width: 2rem;
-        .logoImg {
+        .icon {
             stroke: ${({ theme }) => theme.palette.color1[800]};
             stroke-width: 8;
         }
@@ -44,9 +45,15 @@ const Container = styled.div`
             display: flex;
             align-items: center;
             transition: color var(--transition);
+            .text {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
             .icon {
                 width: 1rem;
                 height: 1rem;
+                flex-shrink: 0;
                 fill: ${({ theme }) => theme.palette.color1[500]};
                 transition: fill var(--transition), transform var(--transition);
             }
@@ -82,24 +89,31 @@ const Container = styled.div`
         display: flex;
         align-items: center;
         margin-left: auto;
+        flex-shrink: 0;
         .messageMe {
             display: flex;
             align-items: center;
             color: ${({ theme }) => theme.palette.color1[500]};
             fill: ${({ theme }) => theme.palette.color1[500]};
             transition: color var(--transition), fill var(--transition);
+            flex-shrink: 0;
             &:hover {
                 color: ${({ theme }) => theme.palette.color1[800]};
                 fill: ${({ theme }) => theme.palette.color1[800]};
             }
-            .iconWrapper {
+            .text {
+                white-space: nowrap;
+            }
+            ${({ theme }) => theme.breakpoints.down("md")} {
+                .text {
+                    display: none;
+                }
+            }
+            .icon {
                 width: 1.5rem;
                 height: 1.5rem;
                 margin-left: 1rem;
-                .icon {
-                    width: 100%;
-                    height: auto;
-                }
+                flex-shrink: 0;
             }
         }
     }
@@ -113,12 +127,16 @@ export const Header = ({ page, pages }) => {
     return (
         <Container>
             <div className="logo">
-                <Logo className="logoImg" />
+                <Link href="/">
+                    <a>
+                        <Logo className="icon" />
+                    </a>
+                </Link>
             </div>
             <div className="nav">
                 <div className="itemHover">
                     <ArrowDropDown className="icon" />
-                    <spann className="text">{page}</spann>
+                    <span className="text">{page}</span>
                 </div>
                 <div className="navItems">
                     {pages instanceof Array &&
@@ -135,10 +153,8 @@ export const Header = ({ page, pages }) => {
                     target="_blank"
                     className="messageMe"
                 >
-                    <span>Мой телеграм для связи </span>{" "}
-                    <div className="iconWrapper">
-                        <IconTelegram className="icon" />
-                    </div>
+                    <span className="text">Мой телеграм для связи </span>{" "}
+                    <IconTelegram className="icon" />
                 </LinkMaterial>
             </div>
         </Container>
