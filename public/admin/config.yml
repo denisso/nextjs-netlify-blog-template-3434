@@ -15,7 +15,8 @@ collections:
       name: "home"
       file: "content/home.md"
       fields:
-        - { label: "Name", name: "name", widget: "string", required: true }
+        - { label: "Hello", name: "hello", widget: "string", required: true }
+        - { label: "Short after hello", name: "short", widget: "text", required: true }
         - { label: "Title", name: "title", widget: "string", required: true }
         - { label: "Subtitle", name: "subtitle", widget: "string", required: true }
         - { label: "Photo", name: "photo", widget: "image" }
