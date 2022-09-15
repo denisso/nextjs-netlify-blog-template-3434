@@ -31,12 +31,14 @@ collections:
                   label: "Date From",
                   name: "dateFrom",
                   widget: "date",
+                  required: true
               }
             - { label: "Date To", name: "dateTo", widget: "date" }
             - {
                   label: "Description",
                   name: "description",
                   widget: "string",
+                  required: false
               }
             - {
                   label: "Responsibilities",
