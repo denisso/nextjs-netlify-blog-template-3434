@@ -33,12 +33,11 @@ collections:
                   widget: "date",
                   required: true
               }
-            - { label: "Date To", name: "dateTo", widget: "date" }
+            - { label: "Date To", name: "dateTo", widget: "date", required: false }
             - {
                   label: "Description",
                   name: "description",
-                  widget: "string",
-                  required: false
+                  widget: "string"
               }
             - {
                   label: "Responsibilities",
