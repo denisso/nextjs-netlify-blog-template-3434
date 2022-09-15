@@ -5,10 +5,15 @@ import { getListPosts, getPostData } from "../../lib/content";
 import { convSlugtoTitle } from "../../lib/utils";
 
 const Page = ({ page, data }) => {
+
+    const [client, setClient] = React.useState(false);
+    React.useEffect(() => {
+        setClient(true);
+    }, []);
     if (!data) {
         return (
             <Layout title="Страница не найдена" description={""}>
-                <div>Not found</div>
+                <div>Страница не найдена</div>
             </Layout>
         );
     }
@@ -21,6 +26,7 @@ const Page = ({ page, data }) => {
                 mollitia nam cum laboriosam pariatur corporis. Quo unde esse sed
                 maiores quas.
             </div>
+
             <div>
                 <Link href="/">Home</Link>
             </div>

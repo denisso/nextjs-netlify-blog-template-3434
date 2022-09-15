@@ -11,7 +11,7 @@ const variants = {
 const Main = styled(motion.main)`
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 4rem;
 `;
 
 const Layout = ({ children, title, description }) => (

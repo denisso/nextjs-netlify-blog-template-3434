@@ -21,7 +21,9 @@ export const base = css`
         font-family: var(--font1);
         line-height: 1.5;
     }
-
+    h1,h2,h3,h4,h5,h6{
+        margin-bottom: 1rem;
+    }
     a,
     a:link,
     a:visited,
