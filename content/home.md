@@ -1,13 +1,17 @@
 ---
 name: Денис, React разработчик
-photo: /img/20878458.jpg
 title: Привет, Я Денис 👋
 subtitle: Я React разработчик.
-skills: React, Redux, Typescript, Node.js, Webpack, JavaScript, SQL, HTML5, CSS3, Git, Web API, Styled-components, Framer Motion, Паттерны программирования, React router, React ecosystem, SCSS, jQuery, MySQL, MongoDB, ESLint, PHP
+photo: /img/20878458.jpg
+skills: React, Redux, Typescript, Node.js, Webpack, JavaScript, SQL, HTML5,
+  CSS3, Git, Web API, Styled-components, Framer Motion, Паттерны
+  программирования, React router, React ecosystem, SCSS, jQuery, MySQL, MongoDB,
+  ESLint, PHP
 date: 2022-08-05T06:25:55.388Z
+birthday: 1982-10-20T09:00:39.793Z
 jobs:
   - dateFrom: 2011-06-01T03:31:21.170Z
-    dateTo: 2022-08-30T04:31:21.215Z
+    dateTo: ""
     responsibilities: Обслуживание компьютерной техники, разработка и поддержка сайта
     description: Обеспечение условий для развития на территории городского округа
       Мытищи физической культуры и массового спорта, организация проведения
@@ -27,7 +31,6 @@ jobs:
       бизнес-процессами); разработка ERP (системы управления производством);
     responsibilities: Разработка программного обеспечения, на языке C++
     company: Asoft
-birthday: 1982-10-20T09:00:39.793Z
 ---
 Общий стаж работы с web технологиями 3 года. В последнее время, около года, занимался разработкой SPA на базе технологий React, Redux Toolkit и rtkQuery, Styled-components, React-Router с использованием Typescript. 
 
