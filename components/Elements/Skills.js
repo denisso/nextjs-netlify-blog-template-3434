@@ -9,21 +9,24 @@ const Container = styled("div")`
 
 const ChipStyled = styled(Chip)`
     font-size: var(--fontSize);
-    font-family: var(--font2);  
+    font-family: var(--font2);
 `;
 
-export const Skills = ({ skills }) => (
-    <Container>
-        {typeof skills === "string" &&
-            skills
-                .split(",")
-                .map((e, i) => (
-                    <ChipStyled
-                        key={e}
-                        color="primary"
-                        label={e}
-                        clickable
-                    />
-                ))}
-    </Container>
-);
+export const Skills = ({ skills }) => {
+    if (!skills) return <></>;
+    return (
+        <Container>
+            {typeof skills === "string" &&
+                skills
+                    .split(",")
+                    .map((e, i) => (
+                        <ChipStyled
+                            key={e}
+                            color="primary"
+                            label={e}
+                            clickable
+                        />
+                    ))}
+        </Container>
+    );
+};
