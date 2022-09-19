@@ -39,6 +39,8 @@ jobs:
     responsibilities: Разработка программного обеспечения, на языке C++
     company: Asoft
 ---
+![](/img/intro-to-cloud.d49bc5f7.jpeg)
+
 Общий стаж работы с web технологиями 3 года. В последнее время, около года, занимался разработкой SPA на базе технологий React, Redux Toolkit и rtkQuery, Styled-components, React-Router с использованием Typescript. 
 
 Мои основные навыки: NextJS, React и React ecosystem, верстка HTML CSS с применением препроцессоров, Javascript браузерный и NodeJS, Typescript, анализ кода и применение паттернов программирования, работа с базами данных. RestAPI, GraphQL. Стараюсь самосовершенствоваться и изучать новы технологии. 
