@@ -22,7 +22,9 @@ const style = {
     },
     typography: {
         font1: `'IBM Plex Sans', sans-serif`,
-        font2: `'Comfortaa', cursive`
+        font2: `'Comfortaa', cursive`,
+        fontFamily: `'Comfortaa', cursive`,
+        fontSize: "20",
     }
 };
 
