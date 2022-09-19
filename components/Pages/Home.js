@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import moment from "moment";
 import { Skills } from "../Elements/Skills";
 import styled from "styled-components";
-
-const Container = styled.div`
+import { Jobs } from "../Elements/Jobs";
+import moment from "moment";
+const Container = styled("div")`
     display: flex;
     flex-direction: column;
     gap: 5rem;
@@ -35,7 +35,9 @@ const Container = styled.div`
             height: 10rem;
             width: 10rem;
             flex-shrink: 0;
-            background-color: orange;
+            border-radius: 0.4rem;
+            overflow: hidden;
+            border: 5px solid ${({ theme }) => theme.palette.color1[600]};
             .image {
             }
         }
@@ -78,13 +80,13 @@ export const Home = ({ data }) => {
                     </div>
                 </div>
                 <div className="photo">
-                    {/* <Image
-                    src={data.photo}
-                    alt="Фотография автора сайта"
-                    width={500}
-                    height={500}
-                    className="image"
-                /> */}
+                    <Image
+                        src={data.photo}
+                        alt="Фотография автора сайта"
+                        width={500}
+                        height={500}
+                        className="image"
+                    />
                 </div>
             </section>
             <section className="skills">
@@ -94,19 +96,18 @@ export const Home = ({ data }) => {
             <section className="blockDescribe">
                 <h2>Обо мне</h2>
                 <article
-                    className=""
+                    className="content"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 ></article>
             </section>
-            <section className="blockJobs"></section>
+            <section className="blockJobs">
+            <h2>Компании</h2>
+                <Jobs jobs={data.jobs}/>
+            </section>
+            <section>
+                Обновлено: {data.date && moment(data.date).format("YYYY/MM/DD hh:mm")}
+            </section>
 
-            <div className="photo"></div>
-            {/* <div className="dateupdate">
-                {data.date && moment(data.date).format("YYYY/MM/DD hh:mm")}
-            </div>
-            <div className="birthday">
-                {data.birthday && moment(data.birthday).format("YYYY/MM/DD")}
-            </div> */}
         </Container>
     );
 };
