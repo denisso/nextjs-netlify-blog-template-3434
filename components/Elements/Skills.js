@@ -1,4 +1,4 @@
-import { styled } from "@mui/material/styles";
+import styled from "styled-components";
 import { Chip } from "@mui/material";
 
 const Container = styled("div")`
@@ -8,8 +8,8 @@ const Container = styled("div")`
 `;
 
 const ChipStyled = styled(Chip)`
-    font-size: var(--fontSize);
-    font-family: var(--font2);
+    /* font-size: var(--fontSize); */
+    /* font-family: var(--font2); */
 `;
 
 export const Skills = ({ skills }) => {
