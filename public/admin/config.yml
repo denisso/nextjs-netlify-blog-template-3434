@@ -68,6 +68,7 @@ collections:
         name: "notes"
         widget: "list"
         fields:
-            - { label: "Note", name: "notename", widget: "string" }
+            - { label: "Note name", name: "name", widget: "string" }
+            - { label: "Short", name: "short", widget: "markdown" }
             - { label: "Body", name: "body", widget: "markdown" }
    
