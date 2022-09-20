@@ -6,7 +6,7 @@ import Link from "next/link";
 import IconTelegram from "../assets/telegram.svg";
 import ArrowDropDown from "../assets/arrovDown.svg";
 
-const Container = styled.div`
+const Container = styled("div")`
     ${({ theme }) => theme.breakpoints.up("sm")} {
         border-top-left-radius: var(--borderRadiusBlock);
         border-top-right-radius: var(--borderRadiusBlock);
