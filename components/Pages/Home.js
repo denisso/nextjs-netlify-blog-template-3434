@@ -87,7 +87,7 @@ export const Home = ({ data }) => {
             </section>
             <section className="blockDescribe">
                 <h2>Обо мне</h2>
-                <Markdown content={data.content} />
+                <Markdown content={data.body} />
             </section>
             <section className="blockJobs">
                 <h2>Компании</h2>
