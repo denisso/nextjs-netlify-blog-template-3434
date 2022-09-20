@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Skills } from "../Elements/Skills";
 import styled from "styled-components";
 import { Jobs } from "../Elements/Jobs";
+import { Markdown } from "../Elements/Markdown";
 import moment from "moment";
 const Container = styled("div")`
     display: flex;
@@ -43,15 +44,6 @@ const Container = styled("div")`
         }
     }
     section.blockDescribe {
-        article {
-            text-indent: 2rem;
-        }
-        ul {
-            list-style-position: inside;
-        }
-        a {
-            text-decoration: underline;
-        }
     }
     section.blockJobs {
     }
@@ -95,19 +87,16 @@ export const Home = ({ data }) => {
             </section>
             <section className="blockDescribe">
                 <h2>Обо мне</h2>
-                <article
-                    className="content"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                ></article>
+                <Markdown content={data.content} />
             </section>
             <section className="blockJobs">
-            <h2>Компании</h2>
-                <Jobs jobs={data.jobs}/>
+                <h2>Компании</h2>
+                <Jobs jobs={data.jobs} />
             </section>
             <section>
-                Обновлено: {data.date && moment(data.date).format("YYYY/MM/DD hh:mm")}
+                Обновлено:{" "}
+                {data.date && moment(data.date).format("YYYY/MM/DD hh:mm")}
             </section>
-
         </Container>
     );
 };
