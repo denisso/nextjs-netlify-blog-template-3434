@@ -24,7 +24,7 @@ const style = {
         font1: `'IBM Plex Sans', sans-serif`,
         font2: `'Comfortaa', cursive`,
         fontFamily: `'Comfortaa', cursive`,
-        fontSize: "20",
+        fontSize: 20,
     }
 };
 
