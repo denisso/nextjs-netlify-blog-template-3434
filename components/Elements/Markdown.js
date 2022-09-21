@@ -9,10 +9,18 @@ const Content = styled("article")`
     ul {
         list-style-position: inside;
     }
+
     a {
         text-decoration: underline;
     }
-
+    pre{
+        text-indent: 0;
+        margin-left: 2rem;
+        code{
+            font-family: ${({ theme }) => theme.typography.fontSourceCode};
+        }
+    }
+    
     img {
         display: block;
         margin: 0 auto;
