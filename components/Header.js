@@ -153,7 +153,7 @@ export const Header = ({ page, pages }) => {
                     target="_blank"
                     className="messageMe"
                 >
-                    <span className="text">Мой телеграм для связи </span>{" "}
+                    <span className="text">Связь по Telegram</span>{" "}
                     <IconTelegram className="icon" />
                 </LinkMaterial>
             </div>
