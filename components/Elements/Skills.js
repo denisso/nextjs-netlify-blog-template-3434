@@ -7,11 +7,6 @@ const Container = styled("div")`
     flex-wrap: wrap;
 `;
 
-const ChipStyled = styled(Chip)`
-    /* font-size: var(--fontSize); */
-    /* font-family: var(--font2); */
-`;
-
 export const Skills = ({ skills }) => {
     if (!skills) return <></>;
     return (
@@ -20,7 +15,7 @@ export const Skills = ({ skills }) => {
                 skills
                     .split(",")
                     .map((e, i) => (
-                        <ChipStyled
+                        <Chip
                             key={e}
                             color="primary"
                             label={e}
