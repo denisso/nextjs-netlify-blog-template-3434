@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
                         crossOrigin="true"
                     />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Source+Code+Pro&display=swap"
                         rel="stylesheet"
                     />
                     <link rel="icon" type="image/x-icon" href="/ico.svg" />
@@ -33,29 +33,6 @@ export default class MyDocument extends Document {
 
 // https://github.com/vercel/next.js/blob/master/examples/with-styled-components/pages/_document.js
 MyDocument.getInitialProps = async (ctx) => {
-    // const sheet = new ServerStyleSheet();
-    // const originalRenderPage = ctx.renderPage;
-
-    // try {
-    //     ctx.renderPage = () =>
-    //         originalRenderPage({
-    //             enhanceApp: (App) => (props) =>
-    //                 sheet.collectStyles(<App {...props} />),
-    //         });
-
-    //     const initialProps = await Document.getInitialProps(ctx);
-    //     return {
-    //         ...initialProps,
-    //         styles: (
-    //             <React.Fragment>
-    //                 {initialProps.styles}
-    //                 {sheet.getStyleElement()}
-    //             </React.Fragment>
-    //         ),
-    //     };
-    // } finally {
-    //     sheet.seal();
-    // }
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 

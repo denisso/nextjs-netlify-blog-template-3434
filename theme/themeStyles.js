@@ -23,6 +23,7 @@ const style = {
     typography: {
         font1: `'IBM Plex Sans', sans-serif`,
         font2: `'Comfortaa', cursive`,
+        fontSourceCode: `'Source Code Pro', monospace`,
         fontFamily: `'Comfortaa', cursive`,
         fontSize: 20,
         fontSizeBody: "18px",
