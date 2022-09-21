@@ -17,11 +17,16 @@ export const base = css`
         color: ${({ theme }) => theme.palette.color1[900]};
         transition: color var(--transition), background-color var(--transition),
             width var(--transition);
-        font-size: var(--fontSize);
-        font-family: var(--font1);
+        font-size: ${({ theme }) => theme.typography.fontSizeBody};
+        font-family: ${({ theme }) => theme.typography.font1};
         line-height: 1.5;
     }
-    h1,h2,h3,h4,h5,h6{
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         margin-bottom: 1rem;
     }
     a,
@@ -38,7 +43,7 @@ export const base = css`
         cursor: pointer;
     }
     .container {
-        padding: 0 var(--padding);
+        padding: 0 1rem;
     }
     #__next {
         background-color: ${({ theme }) => theme.palette.rootColor};

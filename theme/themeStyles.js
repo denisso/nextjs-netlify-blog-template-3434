@@ -25,6 +25,7 @@ const style = {
         font2: `'Comfortaa', cursive`,
         fontFamily: `'Comfortaa', cursive`,
         fontSize: 20,
+        fontSizeBody: "18px",
     }
 };
 

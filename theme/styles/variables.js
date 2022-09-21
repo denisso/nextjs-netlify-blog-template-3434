@@ -2,15 +2,12 @@ import { css } from "styled-components";
 
 export const variables = css`
     :root {
-        --fontSize: 18px;
-        --font1: 'IBM Plex Sans', sans-serif;
-        --font2: 'Comfortaa', cursive;
-        --gap: 1rem;
-        --zIndexModal: 9999;
-        --zIndexSteakyHeader: 9999;
-        --zIndexContentOverBlocks: 100;
-        --padding: 1rem;
-        --transition: 0.4s;
+        --fontSize: ${({theme})=>theme.typography.fontSizeBody};
+        --font1: ${({theme})=>theme.typography.font1};
+        --font2: ${({theme})=>theme.typography.font2};
+        --zIndexModal: ${({theme})=>theme.zIndex.modal};
+        --zIndexSteakyHeader: ${({theme})=>theme.zIndex.appBar};
+        --transition: calc(${({theme})=>theme.transitions.duration.standard} * 1ms);
         --borderRadiusBlock: .5rem;
         --borderRadiusInput: .3rem;
         --opacityFadeOut: .6;
