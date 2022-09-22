@@ -19,6 +19,7 @@
     "framer-motion": "^6.5.1",
     "frontmatter-markdown-loader": "^3.7.0",
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.6.0",
     "moment": "^2.29.4",
     "next": "12.2.5",
     "next-seo": "^5.5.0",
