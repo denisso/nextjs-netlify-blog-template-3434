@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Content = styled("article")`
+const Content = styled("div")`
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -10,7 +10,7 @@ const Content = styled("article")`
         list-style-position: inside;
     }
 
-    a {
+    & a {
         text-decoration: underline;
     }
     pre{
@@ -27,7 +27,7 @@ const Content = styled("article")`
     }
 `;
 
-export const Markdown = ({ content }) => {
+export const Markdown = ({ content, className }) => {
     if (typeof content !== "string") return <></>;
-    return <Content dangerouslySetInnerHTML={{ __html: content }}></Content>;
+    return <Content className={className} dangerouslySetInnerHTML={{ __html: content }}></Content>;
 };

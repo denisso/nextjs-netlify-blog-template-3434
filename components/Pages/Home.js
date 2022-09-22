@@ -14,6 +14,7 @@ const Container = styled("div")`
         justify-content: space-around;
         align-items: center;
         gap: 2rem;
+        padding-top: 2rem;
         .text {
             .hello {
                 font-size: 2.5rem;
