@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { grey, red, orange, blue } from '@mui/material/colors';
+import { grey, yellow, orange, blue } from '@mui/material/colors';
 import {reverseColors} from "./themeUtils"
 const style = {
     components: {
@@ -32,7 +32,7 @@ const style = {
 
 const colors = {
     color1: grey,
-    color2: red,
+    color2: yellow,
     color3: orange,
     color4: blue
 }
@@ -52,8 +52,8 @@ export const dark = createTheme({
         rootColor: "gray",
         color1: reverseColors(colors.color1),
         color2: reverseColors(colors.color2),
-        color2: reverseColors(colors.color3),
-        color3: reverseColors(colors.color4),
+        color3: reverseColors(colors.color3),
+        color4: reverseColors(colors.color4),
     },
     ...style,
 });

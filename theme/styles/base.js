@@ -35,7 +35,6 @@ export const base = css`
     a:active {
         text-decoration: none;
         color: ${({ theme }) => theme.palette.color1[900]};
-        user-select: none;
         cursor: pointer;
     }
     button {
