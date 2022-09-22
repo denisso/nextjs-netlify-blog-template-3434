@@ -1,35 +1,26 @@
 import React from "react";
 import Layout from "../../components/Layout";
-import Link from "next/link";
 import { getListPosts, getPostData } from "../../lib/content";
 import { convSlugtoTitle } from "../../lib/utils";
+import Post from "../../components/Pages/Post";
+
+const title = "Страница не найдена"
 
 const Page = ({ page, data }) => {
-
     const [client, setClient] = React.useState(false);
     React.useEffect(() => {
         setClient(true);
     }, []);
     if (!data) {
         return (
-            <Layout title="Страница не найдена" description={""}>
-                <div>Страница не найдена</div>
+            <Layout title={title} description={title}>
+                <div>{title}</div>
             </Layout>
         );
     }
     return (
         <Layout title={data.title} description={data.title}>
-            <h1>{page}</h1>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                deserunt non culpa, sit aut cupiditate. Illum possimus animi
-                mollitia nam cum laboriosam pariatur corporis. Quo unde esse sed
-                maiores quas.
-            </div>
-
-            <div>
-                <Link href="/">Home</Link>
-            </div>
+            <Post post={page} data={data} />
         </Layout>
     );
 };
@@ -59,8 +50,8 @@ export async function getStaticProps(context) {
 
     // for header nav
     props.page = convSlugtoTitle(slug);
-    // for header nav
     props.pages = [{ title: "Краткая справка", path: "/", url: "/" }];
+
     const posts = await getListPosts();
     for (const post of posts) {
         if (slug !== post.url) {
@@ -68,6 +59,7 @@ export async function getStaticProps(context) {
             props.pages.push(post);
         }
     }
+
     return {
         props,
         revalidate: 5,
