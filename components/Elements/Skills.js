@@ -5,6 +5,9 @@ const Container = styled("div")`
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    .ChipStyle{
+        font-size: 1.1rem;
+    }
 `;
 
 export const Skills = ({ skills }) => {
@@ -16,6 +19,7 @@ export const Skills = ({ skills }) => {
                     .split(",")
                     .map((e, i) => (
                         <Chip
+                            className="ChipStyle"
                             key={e}
                             color="primary"
                             label={e}

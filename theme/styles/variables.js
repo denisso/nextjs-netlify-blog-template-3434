@@ -7,7 +7,7 @@ export const variables = css`
         --font2: ${({theme})=>theme.typography.font2};
         --zIndexModal: ${({theme})=>theme.zIndex.modal};
         --zIndexSteakyHeader: ${({theme})=>theme.zIndex.appBar};
-        --transition: calc(${({theme})=>theme.transitions.duration.standard} * 1ms);
+        --transition: ${({theme})=>theme.transitions.duration.standard + "ms"};
         --borderRadiusBlock: .5rem;
         --borderRadiusInput: .3rem;
         --opacityFadeOut: .6;

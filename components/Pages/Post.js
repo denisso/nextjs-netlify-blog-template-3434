@@ -10,7 +10,20 @@ const ModalStyled = styled(Modal)`
     left: 0;
     width: 100%;
     height: 100%;
+    & .containerModal {
+        padding: 0.5rem 3rem;
 
+        ${({ theme }) => theme.breakpoints.down("md")} {
+            padding: 0.5rem 1.2rem;
+        }
+        ${({ theme }) => theme.breakpoints.down("sm")} {
+            padding: 0.5rem;
+        }
+    }
+    ${({ theme }) => theme.breakpoints.up("xl")} {
+        width: ${({ theme }) => theme.breakpoints.values.xl + "px"};
+        margin: 0 auto;
+    }
     .box {
         display: flex;
         flex-direction: column;
@@ -23,22 +36,42 @@ const ModalStyled = styled(Modal)`
             justify-content: space-between;
             align-items: center;
             background-color: ${({ theme }) => theme.palette.color3[400]};
-            padding: 0 3rem;
+
             color: ${({ theme }) => theme.palette.color1[900]};
             .button {
                 font-family: var(--font1);
                 font-weight: 700;
-                font-size: .8rem;
+                font-size: 0.8rem;
                 color: ${({ theme }) => theme.palette.color1[900]};
+                .short {
+                    display: none;
+                }
+                .long {
+                    display: inline;
+                }
+                ${({ theme }) => theme.breakpoints.down("sm")} {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    .short {
+                        display: inline;
+                    }
+                    .long {
+                        display: none;
+                    }
+                }
             }
         }
         footer {
+            padding-bottom: 0;
+            padding-top: 0;
             .left,
             .right {
                 flex-basis: 100%;
+
             }
             .center {
-                flex-basis: 100px;
+                flex-basis: 7rem;
                 flex-shrink: 0;
                 display: flex;
                 align-items: center;
@@ -46,8 +79,26 @@ const ModalStyled = styled(Modal)`
             }
         }
         header {
-            padding: 0.5rem 3rem;
             box-shadow: var(--boxShadowHorizontal) rgba(0, 0, 0, 0.5);
+            .fabButton {
+                height: 2rem;
+                width: 2rem;
+                min-width: 2rem;
+                min-height: 2rem;
+                max-width: 2rem;
+                max-height: 2rem;
+
+                .icon {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    fill: ${({theme}) => theme.palette.color1[500]};
+                    transition: fill var(--transition);
+                    &:hover{
+                        fill: ${({theme}) => theme.palette.color1[800]};
+                    }
+                }
+            }
             .modalHeaderText {
                 margin: 0;
             }
@@ -56,7 +107,6 @@ const ModalStyled = styled(Modal)`
             background: white;
             flex: 1;
             overflow-y: auto;
-            padding: 0.5rem 3rem;
         }
     }
 `;
@@ -114,19 +164,16 @@ const Post = ({ data, post }) => {
 
             <ModalStyled open={open} onClose={handleClose}>
                 <div className="box">
-                    <header>
+                    <header className="containerModal">
                         <h3 className="modalHeaderText">
                             {data.notes[currentNote].name}
-                        </h3>{" "}
-                        <Fab
-                            className="button"
-                            size="small"
-                            onClick={handleClose}
-                        >
-                            <CloseIcon />
+                        </h3>
+
+                        <Fab className="fabButton" onClick={handleClose}>
+                            <CloseIcon class="icon" />
                         </Fab>
                     </header>
-                    <section className="modalBody">
+                    <section className="modalBody containerModal">
                         {Array.isArray(data.notes) && data.notes[currentNote] && (
                             <>
                                 <Markdown
@@ -136,7 +183,7 @@ const Post = ({ data, post }) => {
                         )}
                     </section>
 
-                    <footer>
+                    <footer className="containerModal">
                         <Button
                             className="button left"
                             onClick={() =>
@@ -147,15 +194,21 @@ const Post = ({ data, post }) => {
                                 )
                             }
                         >
-                            Пред: {
-                                data.notes[
-                                    currentNote > 0
-                                        ? currentNote - 1
-                                        : data.notes.length - 1
-                                ].name
-                            }
+                            <span className="long">
+                                Пред:{" "}
+                                {
+                                    data.notes[
+                                        currentNote > 0
+                                            ? currentNote - 1
+                                            : data.notes.length - 1
+                                    ].name
+                                }
+                            </span>
+                            <span className="short">Предыдущий</span>
                         </Button>
-                        <div className="center">{currentNote} / {data.notes.length}</div>
+                        <div className="center">
+                            {currentNote} / {data.notes.length}
+                        </div>
                         <Button
                             className="button right"
                             onClick={() =>
@@ -166,13 +219,18 @@ const Post = ({ data, post }) => {
                                 )
                             }
                         >
-                            След: {
-                                data.notes[
-                                    currentNote < data.notes.length - 1
-                                        ? currentNote + 1
-                                        : 0
-                                ].name
-                            }
+                            <span className="long">
+                                След:{" "}
+                                {
+                                    data.notes[
+                                        currentNote < data.notes.length - 1
+                                            ? currentNote + 1
+                                            : 0
+                                    ].name
+                                }
+                            </span>
+
+                            <span className="short">Следующий</span>
                         </Button>
                     </footer>
                 </div>

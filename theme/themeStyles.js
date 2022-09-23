@@ -1,6 +1,16 @@
 import { createTheme } from "@mui/material/styles";
-import { grey, yellow, orange, blue } from '@mui/material/colors';
-import {reverseColors} from "./themeUtils"
+import { grey, yellow, orange, blue } from "@mui/material/colors";
+import { reverseColors } from "./themeUtils";
+
+const breakpoints = {
+    values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+    },
+};
 const style = {
     components: {
         MuiChip: {
@@ -11,37 +21,28 @@ const style = {
             },
         },
     },
-    breakpoints: {
-        values: {
-            xs: 0,
-            sm: 600,
-            md: 900,
-            lg: 1200,
-            xl: 1536,
-        },
-    },
+    breakpoints,
     typography: {
+        pxToRem: (size) => `1rem`,
         font1: `'IBM Plex Sans', sans-serif`,
         font2: `'Comfortaa', cursive`,
         fontSourceCode: `'Source Code Pro', monospace`,
         fontFamily: `'Comfortaa', cursive`,
-        fontSize: 20,
-        fontSizeBody: "18px",
-    }
+    },
 };
 
 const colors = {
     color1: grey,
     color2: yellow,
     color3: orange,
-    color4: blue
-}
+    color4: blue,
+};
 
 export const light = createTheme({
     palette: {
         mode: "light",
         rootColor: "white",
-        ...colors
+        ...colors,
     },
     ...style,
 });

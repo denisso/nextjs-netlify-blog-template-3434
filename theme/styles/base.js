@@ -11,13 +11,25 @@ export const base = css`
     *::after {
         box-sizing: border-box;
     }
-
+    html {
+        ${({ theme }) => theme.breakpoints.up("md")} {
+            font-size: 18px;
+        }
+        ${({ theme }) => theme.breakpoints.down("md")} {
+            font-size: 16px;
+        }
+        ${({ theme }) => theme.breakpoints.down("sm")} {
+            font-size: 14px;
+        }
+    }
     body {
         background-color: ${({ theme }) => theme.palette.color1[200]};
         color: ${({ theme }) => theme.palette.color1[900]};
         transition: color var(--transition), background-color var(--transition),
             width var(--transition);
-        font-size: ${({ theme }) => theme.typography.fontSizeBody};
+        /* font-size: 20px; */
+        /* ${({ theme }) =>
+            console.log("body fontSize: ", theme.typography.fontSize)}; */
         font-family: ${({ theme }) => theme.typography.font1};
         line-height: 1.5;
     }
@@ -48,7 +60,7 @@ export const base = css`
         background-color: ${({ theme }) => theme.palette.rootColor};
         transition: width var(--transition), margin var(--transition),
             border-radius var(--transition);
-        margin: 50px auto 100px;
+        margin: 3rem auto 7rem;
         box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
             0 6.7px 5.3px rgba(0, 0, 0, 0.048),
             0 12.5px 10px rgba(0, 0, 0, 0.06),
