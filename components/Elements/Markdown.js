@@ -16,7 +16,7 @@ const Content = styled("div")`
     }
 
     & a {
-        text-decoration: underline;
+        text-decoration: underline !important;
     }
     pre {
         text-indent: 0;
@@ -36,6 +36,26 @@ const Content = styled("div")`
     img {
         display: block;
         margin: 0 auto;
+        object-fit: contain;
+        max-width: 100%;
+        width: auto;
+        height: 400px;
+        transition: height var(--transition);
+        ${({ theme }) => theme.breakpoints.down("md")} {
+            height: 300px;
+        }
+        @media (max-width: 750px) {
+            height: 250px;
+        }
+        ${({ theme }) => theme.breakpoints.down("sm")} {
+            height: 200px;
+        }
+        @media (max-width: 500px) {
+            height: 150px;
+        }
+        @media (max-width: 400px) {
+            height: 120px;
+        }
     }
 `;
 

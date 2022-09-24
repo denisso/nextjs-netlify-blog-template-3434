@@ -11,7 +11,22 @@ const variants = {
 const Main = styled(motion.main)`
     display: flex;
     flex-direction: column;
-    padding: 0 4rem;
+    padding: 0 3rem;
+    ${({ theme }) => theme.breakpoints.down("md")} {
+        padding: 0 2.5rem;
+    }
+    ${({ theme }) => theme.breakpoints.down("sm")} {
+        padding: 0 2rem;
+    }
+    ${({ theme }) => theme.breakpoints.down("xs3")} {
+        padding: 0 1.5rem;
+    }
+    ${({ theme }) => theme.breakpoints.down("xs2")} {
+        padding: 0 1rem;
+    }
+    ${({ theme }) => theme.breakpoints.down("xs1")} {
+        padding: 0 0.5rem;
+    }
 `;
 
 const Layout = ({ children, title, description }) => (
@@ -33,4 +48,4 @@ const Layout = ({ children, title, description }) => (
     </>
 );
 
-export default Layout
+export default Layout;

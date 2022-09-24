@@ -18,6 +18,7 @@ const Container = styled("div")`
     z-index: var(--zIndexSteakyHeader);
     top: 0px;
     background-color: ${({ theme }) => theme.palette.rootColor};
+    outline: 2px solid ${({ theme }) => theme.palette.rootColor};
     transition: background-color var(--transition);
     box-shadow: var(--boxShadowHorizontal) rgba(0, 0, 0, 0.5);
     padding: 0.5rem 1rem;

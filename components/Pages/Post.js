@@ -43,6 +43,7 @@ const ModalStyled = styled(Modal)`
                 font-weight: 700;
                 font-size: 0.8rem;
                 color: ${({ theme }) => theme.palette.color1[900]};
+                
                 .short {
                     display: none;
                 }
@@ -87,16 +88,20 @@ const ModalStyled = styled(Modal)`
                 min-height: 2rem;
                 max-width: 2rem;
                 max-height: 2rem;
+                background-color: ${({ theme }) => theme.palette.color3[400]};
 
+                outline: solid ${({ theme }) => theme.palette.color3[500]};
+                &:hover{
+                    box-shadow: inherit;
+                    background-color: ${({ theme }) => theme.palette.color3[100]};
+                }
                 .icon {
                     width: 100%;
                     height: auto;
                     display: block;
-                    fill: ${({theme}) => theme.palette.color1[500]};
+                    fill: ${({theme}) => theme.palette.color1[800]};
                     transition: fill var(--transition);
-                    &:hover{
-                        fill: ${({theme}) => theme.palette.color1[800]};
-                    }
+
                 }
             }
             .modalHeaderText {

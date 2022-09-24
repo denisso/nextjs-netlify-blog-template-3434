@@ -1,0 +1,76 @@
+import styled from "styled-components";
+import Image from "next/image";
+import React from "react";
+const Container = styled("div")`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.6rem;
+    padding-top: 2rem;
+
+    .text {
+        .hello {
+            font-size: 2.2rem;
+        }
+        .short {
+            font-size: 1.6rem;
+        }
+        .sendMe {
+            display: flex;
+            margin-top: 1rem;
+            gap: 1rem;
+            .icon {
+                width: 2rem;
+                height: 2rem;
+                background-color: orange;
+            }
+        }
+    }
+    .photo {
+        height: 10rem;
+        width: 10rem;
+        flex-shrink: 0;
+        border-radius: 0.4rem;
+        overflow: hidden;
+    }
+    ${({ theme }) => theme.breakpoints.down("md")} {
+        gap: 1rem;
+        flex-direction: column-reverse;
+        .text {
+            .hello {
+                font-size: 1.8rem;
+                margin-bottom: 0;
+            }
+            .short {
+                font-size: 1.4rem;
+            }
+        }
+    }
+`;
+const HeroBlock = ({ data }) => (
+    <Container>
+        <div className="text">
+            <h1 className="hello">{data.hello}</h1>
+            <div className="short">
+                {typeof data.short === "string" &&
+                    data.short.split("\n").map((e, i) => <p key={i}>{e}</p>)}
+            </div>
+            <div className="sendMe">
+                <div className="icon"></div>
+                <div className="icon"></div>
+                <div className="icon"></div>
+            </div>
+        </div>
+        <div className="photo">
+            <Image
+                src={data.photo}
+                alt="Фотография автора сайта"
+                width={500}
+                height={500}
+                className="image"
+            />
+        </div>
+    </Container>
+);
+
+export default HeroBlock;
