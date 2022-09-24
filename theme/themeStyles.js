@@ -5,7 +5,11 @@ import { reverseColors } from "./themeUtils";
 const breakpoints = {
     values: {
         xs: 0,
+        xs1: 300,
+        xs2: 400,
+        xs3: 500,
         sm: 600,
+        sm1: 750,
         md: 900,
         lg: 1200,
         xl: 1536,
