@@ -27,9 +27,6 @@ export const base = css`
         color: ${({ theme }) => theme.palette.color1[900]};
         transition: color var(--transition), background-color var(--transition),
             width var(--transition);
-        /* font-size: 20px; */
-        /* ${({ theme }) =>
-            console.log("body fontSize: ", theme.typography.fontSize)}; */
         font-family: ${({ theme }) => theme.typography.font1};
         line-height: 1.5;
     }
