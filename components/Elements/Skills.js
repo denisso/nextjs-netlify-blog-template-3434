@@ -17,7 +17,7 @@ export const Skills = ({ skills }) => {
     return (
         <Container>
             <h2>Навыки</h2>
-            <p className="content">
+            <div className="content">
                 {typeof skills === "string" &&
                     skills
                         .split(",")
@@ -30,7 +30,7 @@ export const Skills = ({ skills }) => {
                                 clickable
                             />
                         ))}
-            </p>
+            </div>
         </Container>
     );
 };

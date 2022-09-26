@@ -24,7 +24,7 @@ export const Jobs = ({ jobs }) => {
     return (
         <Container>
             <h2>Компании</h2>
-            <p className="content">
+            <div className="content">
                 {jobs instanceof Array &&
                     jobs.map((job, i) => (
                         <article key={i} className="job">
@@ -53,7 +53,7 @@ export const Jobs = ({ jobs }) => {
                             </footer>
                         </article>
                     ))}
-            </p>
+            </div>
         </Container>
     );
 };
