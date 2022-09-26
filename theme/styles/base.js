@@ -38,6 +38,24 @@ export const base = css`
     h6 {
         margin-bottom: 1rem;
     }
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    h4 {
+        font-size: 1.3rem;
+    }
+    h5 {
+        font-size: 1.1rem;
+    }
+    h6 {
+        font-size: 1rem;
+    }
     a,
     a:link,
     a:visited,
@@ -64,7 +82,7 @@ export const base = css`
             0 22.3px 17.9px rgba(0, 0, 0, 0.072),
             0 41.8px 33.4px rgba(0, 0, 0, 0.086),
             0 100px 80px rgba(0, 0, 0, 0.12);
-            margin: 3rem auto;
+        margin: 3rem auto;
         ${({ theme }) => theme.breakpoints.down("md")} {
             margin: 2rem auto;
         }

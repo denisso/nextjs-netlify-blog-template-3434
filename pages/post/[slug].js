@@ -5,8 +5,8 @@ import Post from "../../components/Pages/Post";
 
 const titleFotFound = "Страница не найдена";
 
-const Page = ({ data }) => {
-    if (!data) {
+const Page = (props) => {
+    if (!props.data) {
         return (
             <Layout title={titleFotFound} description={titleFotFound}>
                 <div>{titleFotFound}</div>
@@ -14,10 +14,9 @@ const Page = ({ data }) => {
         );
     }
 
-
     return (
-        <Layout title={data.title} description={data.title}>
-            <Post title={data.title} data={data} />
+        <Layout title={props.data.title} description={props.data.title}>
+            <Post {...props} />
         </Layout>
     );
 };
