@@ -24,19 +24,19 @@ export default function MyApp({ Component, pageProps }) {
         router.events.on("routeChangeComplete", () => setOpenBackDrop(false));
         router.events.on("routeChangeError", () => setOpenBackDrop(false));
     }, [router]);
-    const url = `${process.env.URL}${router.asPath}`;
+
     return (
         <>
             <Provider store={store}>
                 <ThemeWrapper>
                     <GlobalStyle />
-                    <Header page={pageProps.page} pages={pageProps.pages} />
+                    <Header page={pageProps.page} pages={pageProps.pages} url={router.asPath}/>
                     <AnimatePresence
                         exitBeforeEnter
                         initial={false}
                         onExitComplete={() => window.scrollTo(0, 0)}
                     >
-                        <Component {...pageProps} canonical={url} key={url} />
+                        <Component {...pageProps} key={router.asPath} />
                     </AnimatePresence>
                     <Footer />
                     <Backdrop

@@ -17,8 +17,11 @@ const Container = styled(Box)`
     }
 `;
 
-export const NavMenuMui = ({ pages, className }) => {
-    const [currentURL, setCurrentURL] = React.useState(pages[0].url);
+export const NavMenuMui = ({ pages, url, className }) => {
+    const [currentURL, setCurrentURL] = React.useState(url);
+    React.useEffect(()=>{
+        setCurrentURL(url)
+    }, [url])
     const router = useRouter();
     React.useEffect(() => {
         if (Array.isArray(pages)) {

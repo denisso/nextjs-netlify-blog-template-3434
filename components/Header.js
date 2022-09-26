@@ -76,11 +76,8 @@ const Container = styled("div")`
     }
 `;
 
-export const Header = ({ pages }) => {
-    const [client, setClient] = React.useState(false);
-    React.useEffect(() => {
-        setClient(true);
-    }, []);
+export const Header = (props) => {
+
     return (
         <Container>
             <div className="logo">
@@ -90,7 +87,7 @@ export const Header = ({ pages }) => {
                     </a>
                 </Link>
             </div>
-            <NavMenu pages={pages} className="nav" />
+            <NavMenu className="nav" {...props} />
             <div className="side">
                 <LinkMaterial
                     href="https://t.me/DenisReactWebCoder"
