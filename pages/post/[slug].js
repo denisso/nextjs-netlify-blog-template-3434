@@ -1,26 +1,23 @@
 import React from "react";
 import Layout from "../../components/Layout";
 import { getListPosts, getPostData } from "../../lib/content";
-import { convSlugtoTitle } from "../../lib/utils";
 import Post from "../../components/Pages/Post";
 
-const title = "Страница не найдена"
+const titleFotFound = "Страница не найдена";
 
-const Page = ({ page, data }) => {
-    const [client, setClient] = React.useState(false);
-    React.useEffect(() => {
-        setClient(true);
-    }, []);
+const Page = ({ data }) => {
     if (!data) {
         return (
-            <Layout title={title} description={title}>
-                <div>{title}</div>
+            <Layout title={titleFotFound} description={titleFotFound}>
+                <div>{titleFotFound}</div>
             </Layout>
         );
     }
+
+
     return (
         <Layout title={data.title} description={data.title}>
-            <Post post={page} data={data} />
+            <Post title={data.title} data={data} />
         </Layout>
     );
 };
@@ -44,18 +41,26 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const slug = context.params.slug;
+
     const props = {};
     // data for page
     props.data = await getPostData(slug);
 
-    // for header nav
-    props.page = convSlugtoTitle(slug);
-    props.pages = [{ title: "Краткая справка", path: "/", url: "/" }];
-
     const posts = await getListPosts();
+
+    props.pages = [];
+    const post = posts.find((e) => e.url === slug);
+    if (post) {
+        props.pages[0] = {
+            title: post.title,
+            url: `/post/${encodeURIComponent(post.url)}`,
+        };
+    }
+    props.pages[props.pages.length] = { title: "Краткая справка", url: "/" };
+
     for (const post of posts) {
         if (slug !== post.url) {
-            post.url = `/post/${post.url}`;
+            post.url = `/post/${encodeURIComponent(post.url)}`;
             props.pages.push(post);
         }
     }

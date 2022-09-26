@@ -138,7 +138,7 @@ const Container = styled("div")`
         }
     }
 `;
-const Post = ({ data, post }) => {
+const Post = ({ data, title }) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -147,7 +147,7 @@ const Post = ({ data, post }) => {
         <>
             <Container>
                 <h1 className="header">
-                    <span className="sign">✍️</span> {post}
+                    <span className="sign">✍️</span> {title}
                 </h1>
                 <section className="body">
                     <Markdown content={data.body} />

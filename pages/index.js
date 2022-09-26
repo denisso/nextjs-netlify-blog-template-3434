@@ -20,12 +20,13 @@ export default HomePage;
 export async function getStaticProps() {
     const props = {};
     props.data = await getHomeData();
-    props.page = "Краткая справка";
-    props.pages = [];
+    props.pages = [{title: "Краткая справка", url: "/"}];
+
     const posts = await getListPosts();
     for (const post of posts) {
-        post.url = `/post/${post.url}`;
+        post.url = `/post/${encodeURIComponent(post.url)}`;
         props.pages.push(post);
+
     }
     return {
         props,

@@ -4,7 +4,8 @@ import Logo from "../assets/logo.svg";
 import { Link as LinkMaterial } from "@mui/material";
 import Link from "next/link";
 import IconTelegram from "../assets/telegram.svg";
-import ArrowDropDown from "../assets/arrovDown.svg";
+
+import { NavMenu } from "./Header/NavMenu";
 
 const Container = styled("div")`
     ${({ theme }) => theme.breakpoints.up("sm")} {
@@ -39,52 +40,7 @@ const Container = styled("div")`
         }
     }
     .nav {
-        position: relative;
-        background-color: ${({ theme }) => theme.palette.rootColor};
-        overflow: hidden;
-        .itemHover {
-            display: flex;
-            align-items: center;
-            transition: color var(--transition);
-            .text {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-            .icon {
-                width: 1rem;
-                height: 1rem;
-                flex-shrink: 0;
-                fill: ${({ theme }) => theme.palette.color1[500]};
-                transition: fill var(--transition), transform var(--transition);
-            }
-        }
-        &:hover {
-            overflow: visible;
-            color: ${({ theme }) => theme.palette.color1[800]};
 
-            .icon {
-                fill: ${({ theme }) => theme.palette.color1[800]};
-                transform: rotate(90deg);
-            }
-        }
-        &:hover .navItems {
-            opacity: 1;
-        }
-        .navItems {
-            display: flex;
-            flex-direction: column;
-            opacity: 0;
-            transition: opacity var(--transition);
-            position: absolute;
-            top: 100%;
-            border: solid;
-            background-color: ${({ theme }) => theme.palette.rootColor};
-            .navItem {
-                padding: 0.5rem;
-                white-space: nowrap;
-            }
-        }
     }
     .side {
         display: flex;
@@ -120,7 +76,7 @@ const Container = styled("div")`
     }
 `;
 
-export const Header = ({ page, pages }) => {
+export const Header = ({ pages }) => {
     const [client, setClient] = React.useState(false);
     React.useEffect(() => {
         setClient(true);
@@ -134,20 +90,7 @@ export const Header = ({ page, pages }) => {
                     </a>
                 </Link>
             </div>
-            <div className="nav">
-                <div className="itemHover">
-                    <ArrowDropDown className="icon" />
-                    <span className="text">{page}</span>
-                </div>
-                <div className="navItems">
-                    {pages instanceof Array &&
-                        pages.map((e) => (
-                            <Link key={e.path} href={e.url}>
-                                <a className="navItem">{e.title}</a>
-                            </Link>
-                        ))}
-                </div>
-            </div>
+            <NavMenu pages={pages} className="nav" />
             <div className="side">
                 <LinkMaterial
                     href="https://t.me/DenisReactWebCoder"
