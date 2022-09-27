@@ -175,7 +175,7 @@ const Post = ({ data }) => {
                         </h3>
 
                         <Fab className="fabButton" onClick={handleClose}>
-                            <CloseIcon class="icon" />
+                            <CloseIcon className="icon" />
                         </Fab>
                     </header>
                     <section className="modalBody containerModal">
