@@ -38,10 +38,6 @@ export const Home = ({ data }) => {
                 <Markdown content={data.body} />
             </section>
             <Jobs jobs={data.jobs} />
-            <section className="LastUpdate">
-                Обновлено:{" "}
-                {data.date && moment(data.date).format("YYYY/MM/DD hh:mm")}
-            </section>
         </Container>
     );
 };
