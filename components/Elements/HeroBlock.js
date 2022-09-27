@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import Image from "next/image";
 import React from "react";
+import Github from "../../assets/github.svg";
+import Cyberforum from "../../assets/cyberforum.svg";
+import Envelope from "../../assets/envelope.svg";
+import { Tooltip, Link } from "@mui/material";
+
 const Container = styled("div")`
     display: flex;
     justify-content: space-around;
@@ -20,9 +25,14 @@ const Container = styled("div")`
             margin-top: 1rem;
             gap: 1rem;
             .icon {
-                width: 2rem;
+                /* width: 2rem; */
                 height: 2rem;
-                background-color: orange;
+                display: flex;
+                & .image {
+                    align-items: center;
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
     }
@@ -56,9 +66,42 @@ const HeroBlock = ({ data }) => (
                     data.short.split("\n").map((e, i) => <p key={i}>{e}</p>)}
             </div>
             <div className="sendMe">
-                <div className="icon"></div>
-                <div className="icon"></div>
-                <div className="icon"></div>
+                <Tooltip title="Перейти в профиль на сайте Github">
+                    <Link
+                        href="https://github.com/denisso"
+                        className="anchor"
+                        target="_blank"
+                        title="Перейти в профиль на сайте Github"
+                    >
+                        <div className="icon">
+                            <Github className="image" />
+                        </div>
+                    </Link>
+                </Tooltip>
+                <Tooltip title="Перейти в профиль на сайте Cyberforum">
+                    <Link
+                        href="https://www.cyberforum.ru/members/1837464.html"
+                        className="anchor"
+                        title="Перейти в профиль на сайте Cyberforum"
+                        target="_blank"
+                    >
+                        <div className="icon">
+                            <Cyberforum className="image" />
+                        </div>
+                    </Link>
+                </Tooltip>
+                <Tooltip title="Отправить письмо по электронной почте на адрес mr_dramm@mail.ru">
+                    <Link
+                        href="mailto:mr_dramm@mail.ru"
+                        className="anchor"
+                        title="Отправить письмо по электронной почте на адрес mr_dramm@mail.ru"
+                        target="_blank"
+                    >
+                        <div className="icon">
+                            <Envelope className="image" />
+                        </div>
+                    </Link>
+                </Tooltip>
             </div>
         </div>
         <div className="photo">
