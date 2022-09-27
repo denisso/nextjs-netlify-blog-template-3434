@@ -57,63 +57,85 @@ const Container = styled("div")`
         }
     }
 `;
-const HeroBlock = ({ data }) => (
-    <Container>
-        <div className="text">
-            <h1 className="hello">{data.hello}</h1>
-            <div className="short">
-                {typeof data.short === "string" &&
-                    data.short.split("\n").map((e, i) => <p key={i}>{e}</p>)}
+
+const links = {
+    github: {
+        icon: Github,
+        title: "Перейти в профиль на сайте Github",
+        href: "https://github.com/denisso",
+    },
+    cyberforun: {
+        icon: Cyberforum,
+        title: "Перейти в профиль на сайте Cyberforum",
+        href: "https://www.cyberforum.ru/members/1837464.html",
+    },
+    mail: {
+        icon: Envelope,
+        title: "Отправить письмо по электронной почте на адрес mr_dramm@mail.ru",
+        href: "mailto:mr_dramm@mail.ru",
+    },
+};
+
+const CustomLink = React.forwardRef(({ link }, ref) => {
+    const [client, setClient] = React.useState(false);
+    React.useEffect(() => {
+        setClient(true);
+    }, []);
+    const Icon = links[link].icon;
+
+    return client ? (
+        <Tooltip ref={ref} title={links[link].title}>
+            <Link href={links[link].href} className="anchor" target="_blank">
+                <div className="icon">
+                    <Icon className="image" />
+                </div>
+            </Link>
+        </Tooltip>
+    ) : (
+        <Link
+            href={links[link].href}
+            className="anchor"
+            target="_blank"
+            {...(!client && {
+                title: links[link].title,
+            })}
+        >
+            <div className="icon">
+                <Icon className="image" />
             </div>
-            <div className="sendMe">
-                <Tooltip title="Перейти в профиль на сайте Github">
-                    <Link
-                        href="https://github.com/denisso"
-                        className="anchor"
-                        target="_blank"
-                        title="Перейти в профиль на сайте Github"
-                    >
-                        <div className="icon">
-                            <Github className="image" />
-                        </div>
-                    </Link>
-                </Tooltip>
-                <Tooltip title="Перейти в профиль на сайте Cyberforum">
-                    <Link
-                        href="https://www.cyberforum.ru/members/1837464.html"
-                        className="anchor"
-                        title="Перейти в профиль на сайте Cyberforum"
-                        target="_blank"
-                    >
-                        <div className="icon">
-                            <Cyberforum className="image" />
-                        </div>
-                    </Link>
-                </Tooltip>
-                <Tooltip title="Отправить письмо по электронной почте на адрес mr_dramm@mail.ru">
-                    <Link
-                        href="mailto:mr_dramm@mail.ru"
-                        className="anchor"
-                        title="Отправить письмо по электронной почте на адрес mr_dramm@mail.ru"
-                        target="_blank"
-                    >
-                        <div className="icon">
-                            <Envelope className="image" />
-                        </div>
-                    </Link>
-                </Tooltip>
+        </Link>
+    );
+});
+CustomLink.displayName = "Customlink";
+
+const HeroBlock = ({ data }) => {
+    return (
+        <Container>
+            <div className="text">
+                <h1 className="hello">{data.hello}</h1>
+                <div className="short">
+                    {typeof data.short === "string" &&
+                        data.short
+                            .split("\n")
+                            .map((e, i) => <p key={i}>{e}</p>)}
+                </div>
+                <div className="sendMe">
+                    {Object.keys(links).map((link) => (
+                        <CustomLink key={link} link={link} />
+                    ))}
+                </div>
             </div>
-        </div>
-        <div className="photo">
-            <Image
-                src={data.photo}
-                alt="Фотография автора сайта"
-                width={500}
-                height={500}
-                className="image"
-            />
-        </div>
-    </Container>
-);
+            <div className="photo">
+                <Image
+                    src={data.photo}
+                    alt="Фотография автора сайта"
+                    width={500}
+                    height={500}
+                    className="image"
+                />
+            </div>
+        </Container>
+    );
+};
 
 export default HeroBlock;
