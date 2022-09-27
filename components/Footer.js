@@ -1,1 +1,27 @@
-export const Footer = () => <></>
+import styled from "styled-components";
+import { LinksProfiles } from "./Elements/LinksProfiles";
+import { useTheme } from "@mui/material";
+
+const Container = styled("div")`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e0e0e0;
+    padding: 1rem;
+    background-color: #091940;
+    gap: 1rem;
+    margin-top: 2rem;
+    ${({ theme }) => theme.breakpoints.down("md")} {
+        margin-top: 1rem;
+    }
+`;
+
+export const Footer = () => {
+    const theme = useTheme();
+    return (
+        <Container>
+            <LinksProfiles color={"#E0E0E0"} />
+            <small>Автор сайта Денис aka mr_dramm</small>
+        </Container>
+    );
+};
