@@ -55,7 +55,7 @@ export async function getStaticProps(context) {
             url: `/post/${encodeURIComponent(post.url)}`,
         };
     }
-    props.pages[props.pages.length] = { title: "Краткая справка", url: "/" };
+    props.pages[props.pages.length] = { title: "Страница автора сайта", url: "/" };
 
     for (const post of posts) {
         if (slug !== post.url) {

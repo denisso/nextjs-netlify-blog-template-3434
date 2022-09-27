@@ -20,7 +20,7 @@ export default HomePage;
 export async function getStaticProps() {
     const props = {};
     props.data = await getHomeData();
-    props.pages = [{title: "Краткая справка", url: "/"}];
+    props.pages = [{title: "Страница автора сайта", url: "/"}];
 
     const posts = await getListPosts();
     for (const post of posts) {
