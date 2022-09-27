@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { LinksProfiles } from "./Elements/LinksProfiles";
-import { useTheme } from "@mui/material";
 
 const Container = styled("div")`
     display: flex;
@@ -17,7 +16,6 @@ const Container = styled("div")`
 `;
 
 export const Footer = () => {
-    const theme = useTheme();
     return (
         <Container>
             <LinksProfiles color={"#E0E0E0"} />
