@@ -4,21 +4,31 @@ import styled from "styled-components";
 
 const Container = styled("div")`
     display: grid;
-    place-items: center;
+    place-content: center;
+    .linkGotoHome {
+        text-decoration: underline;
+    }
+`;
+
+const LayoutStyled = styled(Layout)`
+    display: flex;
+    .Container{
+        flex: 1;
+    }
 `;
 
 const title = "Внутренняя ошибка сервера";
 
 const Page = () => {
     return (
-        <Layout title={title} description={title}>
-            <Container>
+        <LayoutStyled title={title} description={title}>
+            <Container className="Container">
                 <div>{title}</div>
                 <div>
                     <Link href="/">Перейти на главную страницу</Link>
                 </div>
             </Container>
-        </Layout>
+        </LayoutStyled>
     );
 };
 

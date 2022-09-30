@@ -4,26 +4,30 @@ import styled from "styled-components";
 
 const Container = styled("div")`
     display: grid;
-    place-items: center;
-    .linkGotoHome{
+    place-content: center;
+    .linkGotoHome {
         text-decoration: underline;
     }
 `;
 
 const LayoutStyled = styled(Layout)`
     display: flex;
-    align-items: center;
+    .Container{
+        flex: 1;
+    }
 `;
 const title = "Страница не найдена";
 
 const Page = () => {
     return (
         <LayoutStyled title={title} description={title}>
-            <Container>
+            <Container className="Container">
                 <div>{title}</div>
                 <div>
                     <Link href="/">
-                        <a className="linkGotoHome">Перейти на главную страницу</a>
+                        <a className="linkGotoHome">
+                            Перейти на главную страницу
+                        </a>
                     </Link>
                 </div>
             </Container>
@@ -39,10 +43,10 @@ export async function getStaticProps(context) {
     let posts = [];
     props.pages = [];
 
-    // props.pages[props.pages.length] = {
-    //     title: title,
-    //     url: "/404",
-    // };
+    props.pages[props.pages.length] = {
+        title: title,
+        url: "/404",
+    };
 
     props.pages[props.pages.length] = {
         title: "Страница автора сайта",
