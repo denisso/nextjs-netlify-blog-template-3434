@@ -72,6 +72,9 @@ export const base = css`
         padding: 0 1rem;
     }
     #__next {
+        display: flex;
+        flex-direction: column;
+
         background-color: ${({ theme }) => theme.palette.rootColor};
         transition: width var(--transition), margin var(--transition),
             border-radius var(--transition);
@@ -82,14 +85,17 @@ export const base = css`
             0 22.3px 17.9px rgba(0, 0, 0, 0.072),
             0 41.8px 33.4px rgba(0, 0, 0, 0.086),
             0 100px 80px rgba(0, 0, 0, 0.12);
-        margin: 3rem auto;
+        --mh: 3rem;
+        min-height: calc(100vh - var(--mh) * 2);
+        margin: var(--mh) auto;
         ${({ theme }) => theme.breakpoints.down("md")} {
-            margin: 2rem auto;
+            --mh: 2rem;
         }
         ${({ theme }) => theme.breakpoints.down("sm1")} {
-            margin: 1rem auto;
+            --mh: 1rem;
         }
         ${({ theme }) => theme.breakpoints.down("sm")} {
+            --mh: 0rem;
             width: 100%;
             margin: 0 auto 0;
             border-radius: 0;
