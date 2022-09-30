@@ -3,7 +3,7 @@ import Layout from "../../components/Layout";
 import { getListPosts, getPostData } from "../../lib/content";
 import Post from "../../components/Pages/Post";
 
-const titleFotFound = "Страница не найдена";
+const titleFotFound = "Нет данных для отображения";
 
 const Page = (props) => {
     if (!props.data) {
@@ -24,7 +24,11 @@ const Page = (props) => {
 export default Page;
 
 export async function getStaticPaths() {
-    const posts = await getListPosts();
+    let posts = []
+    try {
+        posts = await getListPosts();
+    } catch (err) {}
+
     const paths = [];
     if (posts instanceof Array) {
         for (const post of posts) {
@@ -34,34 +38,40 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: true,
+        fallback: false,
     };
 }
 
 export async function getStaticProps(context) {
     const slug = context.params.slug;
 
-    const props = {};
-    // data for page
-    props.data = await getPostData(slug);
+    let props = {};
+    try {
+        props.data = await getPostData(slug);
+    } catch (err) {}
 
-    const posts = await getListPosts();
-
+    let posts = {};
     props.pages = [];
-    const post = posts.find((e) => e.url === slug);
-    if (post) {
-        props.pages[0] = {
-            title: post.title,
-            url: `/post/${encodeURIComponent(post.url)}`,
-        };
-    }
-    props.pages[props.pages.length] = { title: "Страница автора сайта", url: "/" };
+    try {
+        posts = await getListPosts();
+        const indx = posts.findIndex((e) => e.url === slug);
+        if (indx === -1) {
+            props.pages[0] = {
+                title: posts[indx].title,
+                url: `/post/${encodeURIComponent(posts[indx].url)}`,
+            };
+            posts.splice(indx, 1);
+        }
+    } catch (err) {}
+
+    props.pages[props.pages.length] = {
+        title: "Страница автора сайта",
+        url: "/",
+    };
 
     for (const post of posts) {
-        if (slug !== post.url) {
-            post.url = `/post/${encodeURIComponent(post.url)}`;
-            props.pages.push(post);
-        }
+        post.url = `/post/${encodeURIComponent(post.url)}`;
+        props.pages.push(post);
     }
 
     return {
