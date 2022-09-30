@@ -1,8 +1,7 @@
 ---
-skills: React, Redux, Typescript, Node.js, Webpack, JavaScript, SQL, HTML5,
+skills: React ecosystem, Typescript, Node.js, Webpack, JavaScript, SQL, HTML5,
   CSS3, Git, Web API, Styled-components, Framer Motion, Паттерны
-  программирования, React router, React ecosystem, SCSS, jQuery, MySQL, MongoDB,
-  ESLint, PHP
+  программирования, React router, SCSS, jQuery, MySQL, MongoDB, ESLint, PHP
 name: Денис, React разработчикПривет, Я Денис 👋
 date: 2022-08-05T06:25:55.388Z
 hello: Привет, Я Денис 👋
