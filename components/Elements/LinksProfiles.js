@@ -15,6 +15,7 @@ const links = {
         icon: Cyberforum,
         title: "Перейти в профиль на сайте Cyberforum",
         href: "https://www.cyberforum.ru/members/1837464.html",
+        width: 3.5,
     },
     mail: {
         icon: Envelope,
@@ -23,19 +24,35 @@ const links = {
     },
 };
 
+const IconContainer = styled("div")`
+    display: flex;
+    height: 2rem;
+    width: ${({ width }) => (width ? `${2 * width}rem` : "2rem")};
+    & .image {
+        fill: ${({ color }) => color};
+        color: ${({ color }) => color};
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+`;
+
 const CustomLink = ({ link }) => {
     const [client, setClient] = React.useState(false);
     React.useEffect(() => {
         setClient(true);
     }, []);
     const Icon = links[link].icon;
-
+    console.log("width", links[link].width, "height", links[link].height);
     return client ? (
         <Tooltip title={links[link].title}>
             <Link href={links[link].href} className="anchor" target="_blank">
-                <div className="icon">
+                <IconContainer
+                    width={links[link].width}
+                    height={links[link].height}
+                >
                     <Icon className="image" />
-                </div>
+                </IconContainer>
             </Link>
         </Tooltip>
     ) : (
@@ -57,20 +74,7 @@ CustomLink.displayName = "Customlink";
 
 const Container = styled("div")`
     display: flex;
-    margin-top: 1rem;
     gap: 1rem;
-    .icon {
-        /* width: 2rem; */
-        height: 2rem;
-        display: flex;
-        & .image {
-            fill: ${({color})=>color};
-            color: ${({color})=>color};
-            align-items: center;
-            width: 100%;
-            height: auto;
-        }
-    }
 `;
 
 export const LinksProfiles = ({ className, color }) => {

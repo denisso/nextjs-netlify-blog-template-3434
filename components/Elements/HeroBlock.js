@@ -17,6 +17,7 @@ const Container = styled("div")`
         }
         .short {
             font-size: 1.6rem;
+            margin-bottom: 1rem;
         }
     }
     .photo {

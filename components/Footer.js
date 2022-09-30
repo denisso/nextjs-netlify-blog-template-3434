@@ -6,7 +6,7 @@ const Container = styled("div")`
     flex-direction: column;
     align-items: center;
     color: #e0e0e0;
-    padding: 1rem;
+    padding: 2rem;
     background-color: #091940;
     gap: 1rem;
     margin-top: 2rem;
