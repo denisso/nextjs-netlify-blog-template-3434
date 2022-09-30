@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "@mui/material/styles";
 import { Provider, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import  ErrorBoundary  from "../components/Elements/ErrorBoundary";
 
 const ThemeWrapper = ({ children }) => {
     const theme = useSelector(selectTheme);
@@ -30,14 +31,23 @@ export default function MyApp({ Component, pageProps }) {
             <Provider store={store}>
                 <ThemeWrapper>
                     <GlobalStyle />
-                    <Header page={pageProps.page} pages={pageProps.pages} url={router.asPath}/>
-                    <AnimatePresence
-                        exitBeforeEnter
-                        initial={false}
-                        onExitComplete={() => window.scrollTo(0, 0)}
+                    <Header
+                        page={pageProps.page}
+                        pages={pageProps.pages}
+                        url={router.asPath}
+                    />
+                    <ErrorBoundary
+                        message={`Error occured while page "${router.asPath}" loading.`}
                     >
-                        <Component {...pageProps} key={router.asPath} />
-                    </AnimatePresence>
+                        <AnimatePresence
+                            exitBeforeEnter
+                            initial={false}
+                            onExitComplete={() => window.scrollTo(0, 0)}
+                        >
+                            <Component {...pageProps} key={router.asPath} />
+                        </AnimatePresence>
+                    </ErrorBoundary>
+
                     <Footer />
                     <Backdrop
                         sx={{
