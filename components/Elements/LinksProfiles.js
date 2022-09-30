@@ -43,7 +43,7 @@ const CustomLink = ({ link, color }) => {
         setClient(true);
     }, []);
     const Icon = links[link].icon;
-    console.log("width", links[link].width, "height", links[link].height);
+  
     return client ? (
         <Tooltip title={links[link].title}>
             <Link href={links[link].href} className="anchor" target="_blank">

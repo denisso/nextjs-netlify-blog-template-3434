@@ -11,17 +11,30 @@ const Content = styled("div")`
     ${({ theme }) => theme.breakpoints.down("sm")} {
         text-indent: 0.5rem;
     }
+
     ul,
     ol {
         list-style-position: inside;
-        li ul,
-        li ol {
+    }
+    li {
+        & > * {
+            display: inline;
+        }
+        ul,
+        ol {
+            display: block;
             margin-left: 1rem;
         }
     }
-    * + h1, * + h2, * + h3, * + h4, * + h5, * + h6{
+
+    * + h1,
+    * + h2,
+    * + h3,
+    * + h4,
+    * + h5,
+    * + h6 {
         margin-top: 1rem;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
     }
     & a {
         text-decoration: underline !important;
