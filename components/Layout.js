@@ -9,6 +9,7 @@ const variants = {
 };
 
 const Main = styled(motion.main)`
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding: 0 3rem;
@@ -29,7 +30,7 @@ const Main = styled(motion.main)`
     }
 `;
 
-const Layout = ({ children, title, description }) => (
+const Layout = ({ children, title, description, className }) => (
     <>
         <NextSeo
             title={title}
@@ -42,6 +43,7 @@ const Layout = ({ children, title, description }) => (
             exit="exit"
             variants={variants}
             transition={{ type: "linear" }}
+            className={className}
         >
             {children}
         </Main>
