@@ -41,9 +41,15 @@ jobs:
 ---
 ![](/img/intro-to-cloud.d49bc5f7.jpeg)
 
-Общий стаж работы с web технологиями 3 года. В последнее время, около года, занимался разработкой SPA на базе технологий React, Redux Toolkit и rtkQuery, Styled-components, React-Router с использованием Typescript. 
+Общий стаж работы с web технологиями 3 года. Сейчас занимаюсь разработкой приложений React. В своей практике использую библиотеки экосистемы React: NextJS, Redux Toolkit и rtkQuery, Styled-components, React-Router. 
 
-Мои основные навыки: NextJS, React и React ecosystem, верстка HTML CSS с применением препроцессоров, Javascript браузерный и NodeJS, Typescript, анализ кода и применение паттернов программирования, работа с базами данных. RestAPI, GraphQL. Стараюсь самосовершенствоваться и изучать новы технологии. 
+Регуляно использую:  HTML CSS с применением препроцессоров, Javascript браузерный и NodeJS, Typescript, анализ кода и применение паттернов программирования, работа с базами данных. RestAPI, GraphQL. 
+
+Знание иностранных языков: Английский 
+
+Стараюсь самосовершенствоваться и изучать новые технологии. 
+
+Ссылки на мои профили:
 
 * [Cyberforum профиль](https://www.cyberforum.ru/members/1837464.html) - Активно отвечаю на форуме cyberforum в разделах верстки и программирования javascript, nodejs, react 
 * [Мой демо проект](https://github.com/denisso/demoreact) - Стек React, Redux, React Router, Typescript, Styled-components, Framer-Motion, Formic, React-Markdown
