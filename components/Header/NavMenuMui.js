@@ -42,7 +42,7 @@ export const NavMenuMui = ({ pages, url, className }) => {
                 variant="filled"
                 onChange={handleChange}
             >
-                {pages.map((e) => (
+                {Array.isArray(pages) && pages.map((e) => (
                     <MenuItem
                         value={e.url}
                         key={e.url}
