@@ -37,7 +37,7 @@ const IconContainer = styled("div")`
     }
 `;
 
-const CustomLink = ({ link }) => {
+const CustomLink = ({ link, color }) => {
     const [client, setClient] = React.useState(false);
     React.useEffect(() => {
         setClient(true);
@@ -50,6 +50,7 @@ const CustomLink = ({ link }) => {
                 <IconContainer
                     width={links[link].width}
                     height={links[link].height}
+                    color={color}
                 >
                     <Icon className="image" />
                 </IconContainer>
@@ -79,9 +80,9 @@ const Container = styled("div")`
 
 export const LinksProfiles = ({ className, color }) => {
     return (
-        <Container className={className} color={color}>
+        <Container className={className} >
             {Object.keys(links).map((link) => (
-                <CustomLink key={link} link={link} />
+                <CustomLink key={link} link={link} color={color}/>
             ))}
         </Container>
     );
