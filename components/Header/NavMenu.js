@@ -12,10 +12,7 @@ export const NavMenu = ({ pages, url, className }) => {
             {client ? (
                 <NavMenuMui pages={pages} url={url} className={className} />
             ) : (
-                <NavMenuStatic
-                    pages={pages}
-                    classname={className}
-                />
+                <NavMenuStatic pages={pages} className={className} />
             )}
         </>
     );
