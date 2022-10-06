@@ -26,6 +26,10 @@ const Container = styled("div")`
         flex-shrink: 0;
         border-radius: 0.4rem;
         overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
     ${({ theme }) => theme.breakpoints.down("md")} {
         gap: 1rem;
@@ -54,16 +58,21 @@ const HeroBlock = ({ data }) => {
                             .split("\n")
                             .map((e, i) => <p key={i}>{e}</p>)}
                 </div>
-                <LinksProfiles className="sendMe" color={theme.palette.color1[800]} />
+                <LinksProfiles
+                    className="sendMe"
+                    color={theme.palette.color1[800]}
+                />
             </div>
             <div className="photo">
-                <Image
-                    src={data.photo}
-                    alt="Фотография автора сайта"
-                    width={500}
-                    height={500}
-                    className="image"
-                />
+                <picture>
+                    <img
+                        src={data.photo}
+                        alt="Фотография автора сайта"
+                        width={500}
+                        height={500}
+                        className="image"
+                    />
+                </picture>
             </div>
         </Container>
     );
