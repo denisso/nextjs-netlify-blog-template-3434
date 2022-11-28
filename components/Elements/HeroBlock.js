@@ -65,7 +65,7 @@ const HeroBlock = ({ data }) => {
             </div>
             <div className="photo">
                 <Image
-                    src={`${process.env.URLSITE}${data.photo}`}
+                    src={`https://mrdramm.netlify.app${data.photo}`}
                     alt="Фотография автора сайта"
                     width={500}
                     height={500}
