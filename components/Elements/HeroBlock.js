@@ -64,7 +64,14 @@ const HeroBlock = ({ data }) => {
                 />
             </div>
             <div className="photo">
-                <picture>
+                <Image
+                    src={`${process.env.URL}${data.photo}`}
+                    alt="Фотография автора сайта"
+                    width={500}
+                    height={500}
+                    className="image"
+                />
+                {/* <picture>
                     <img
                         src={data.photo}
                         alt="Фотография автора сайта"
@@ -72,7 +79,7 @@ const HeroBlock = ({ data }) => {
                         height={500}
                         className="image"
                     />
-                </picture>
+                </picture> */}
             </div>
         </Container>
     );
