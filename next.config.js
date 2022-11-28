@@ -4,6 +4,13 @@ const withTM = require("next-transpile-modules")([
 ]); // pass the modules you would like to see transpiled
 
 module.exports = withTM({
+    images: {
+        domains: ["mrdramm.netlify.app"],
+        formats: [
+            "image/avif",
+            "image/webp"
+        ],
+    },
     reactStrictMode: true,
     compiler: {
         // Enables the styled-components SWC transform
